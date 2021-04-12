@@ -13,6 +13,11 @@ use function Mos\Functions\{
     url
 };
 
+use \Pene14\Dice\Dice;
+use \Pene14\Dice\GraphicalDice;
+use \Pene14\Dice\DiceHand;
+use \Pene14\Dice\Game;
+
 /**
  * Class Router.
  */
@@ -69,6 +74,10 @@ class Router
         } else if ($method === "POST" && $path === "/form/process") {
             $_SESSION["output"] = $_POST["content"] ?? null;
             redirectTo(url("/form/view"));
+            return;
+        } else if ($method === "GET" && $path === "/dice") {
+            $callable = new Game();
+            $callable->playGame();
             return;
         }
 
