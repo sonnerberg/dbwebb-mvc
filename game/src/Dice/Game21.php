@@ -20,6 +20,8 @@ class Game21
     private DiceHand $computerDiceHand;
     private bool $stopPlaying = false;
     private array $scoreBoard = ['human' => 0, 'computer' => 0];
+    private bool $gameOver = false;
+
 
     public function playGame21(): void {
         if (!$this->gameOver()) {
