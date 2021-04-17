@@ -15,7 +15,7 @@ use function Mos\Functions\url;
     <title><?= $title ?? "No title" ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="<?= url("/favicon.ico") ?>">
-    <link rel="stylesheet" type="text/css" href="<?= url("/css/style.css") ?>">
+    <link rel="stylesheet" type="text/css" href="<?= url("/css/style.old.css") ?>">
 </head>
 
 <body>

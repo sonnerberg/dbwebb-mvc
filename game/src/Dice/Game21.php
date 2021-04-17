@@ -70,6 +70,7 @@ class Game21
             "chooseNumberDice" => url("/game21/chooseNumberDice"),
             "destroySession" => url("/session/destroyGame"),
             "rollAction" => url("/game21"),
+            "css" => url("/css/style.css"),
         ];
         if ($this->getNumberDice()) {
             $data["human"] =  $this->humanDiceHand->graphicalDie();
