@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 namespace Mos\Router;
 
 use function Mos\Functions\{
@@ -17,6 +16,7 @@ use \Pene14\Dice\Dice;
 use \Pene14\Dice\GraphicalDice;
 use \Pene14\Dice\DiceHand;
 use \Pene14\Dice\Game;
+use \Pene14\Dice\Game21;
 
 /**
  * Class Router.
@@ -79,7 +79,31 @@ class Router
             $callable = new Game();
             $callable->playGame();
             return;
+        } else if ($method === "GET" && $path === "/game21") {
+            // If no game has started, initialize a new Game21
+            if (!isset($_SESSION["game21"])) {
+                $_SESSION['game21'] = new Game21();
+            }
+            $_SESSION['game21']->playGame21();
+            return;
+        } else if ($method === "GET" && $path === "/game21/resetAndPlayAgain") {
+            $_SESSION['game21']->resetAndPlayAgain();
+            redirectTo(url("/game21"));
+            return;
+        } else if ($method === "GET" && $path === "/game21/stopPlaying") {
+            $_SESSION['game21']->stopPlaying();
+            redirectTo(url("/game21"));
+            return;
+        } else if ($method === "POST" && $path === "/game21/chooseNumberDice") {
+            $_SESSION['game21']->setNumberDice((int)$_POST['amountDice']);
+            redirectTo(url("/game21"));
+            return;
+        } else if ($method === "GET" && $path === "/session/destroyGame") {
+            destroySession();
+            redirectTo(url("/game21"));
+            return;
         }
+
 
         $data = [
             "header" => "404",
