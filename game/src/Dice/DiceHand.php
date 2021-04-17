@@ -21,7 +21,7 @@ class DiceHand
         }
     }
 
-    public function getLastRolls() {
+    public function getLastRolls(): string {
         $items = array();
 
         foreach (array_values($this->die) as $dice) {
@@ -30,7 +30,16 @@ class DiceHand
         return implode(',', $items) . ' = ' . array_sum($items);
     }
 
-    public function graphicalDie() {
+    public function getSumLastRolls(): int {
+        $items = array();
+
+        foreach (array_values($this->die) as $dice) {
+            $items[] = $dice->getLastRoll();
+        }
+        return array_sum($items);
+    }
+
+    public function graphicalDie(): string {
         $items = array();
 
         foreach (array_values($this->die) as $dice) {
