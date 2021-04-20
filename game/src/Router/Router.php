@@ -12,9 +12,9 @@ use function Mos\Functions\{
     url
 };
 
-use \Pene14\Dice\Dice;
-use \Pene14\Dice\GraphicalDice;
-use \Pene14\Dice\DiceHand;
+//use \Pene14\Dice\Dice;
+//use \Pene14\Dice\GraphicalDice;
+//use \Pene14\Dice\DiceHand;
 use \Pene14\Dice\Game;
 use \Pene14\Dice\Game21;
 
@@ -86,6 +86,7 @@ class Router
             }
             $_SESSION['game21']->playGame21();
             return;
+            // TODO: resetAndPlayAgain
         } else if ($method === "GET" && $path === "/game21/resetAndPlayAgain") {
             $_SESSION['game21']->resetAndPlayAgain();
             redirectTo(url("/game21"));
@@ -98,7 +99,7 @@ class Router
             $_SESSION['game21']->setNumberDice((int)$_POST['amountDice']);
             redirectTo(url("/game21"));
             return;
-        } else if ($method === "GET" && $path === "/session/destroyGame") {
+        } else if ($method === "GET" && $path === "/game21/destroyGame") {
             destroySession();
             redirectTo(url("/game21"));
             return;

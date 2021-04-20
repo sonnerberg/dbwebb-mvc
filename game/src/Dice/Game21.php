@@ -23,7 +23,7 @@ class Game21
     private bool $gameOver = false;
 
 
-    public function playGame21(): void {
+    public function playGame21(): array {
         if (!$this->gameOver()) {
             if ($this->getNumberDice() && !$this->stopPlaying) {
                 $this->rollAgain();
@@ -33,7 +33,7 @@ class Game21
             }
             $this->updateScoreBoard();
         }
-        $this->renderHTML();
+        return $this->renderHTML();
     }
 
     private function gameOver(): bool {
@@ -63,12 +63,12 @@ class Game21
         }
     }
 
-    private function renderHTML(): void {
+    private function renderHTML(): array {
         $data = [
             "header" => "Dice",
             "message" => "Hey,play some die!",
             "chooseNumberDice" => url("/game21/chooseNumberDice"),
-            "destroySession" => url("/session/destroyGame"),
+            "destroySession" => url("/game21/destroyGame"),
             "rollAction" => url("/game21"),
             "css" => url("/css/style.css"),
         ];
@@ -85,8 +85,9 @@ class Game21
             $data['winner'] = $this->checkWinner();
             $data['scoreBoard'] = $this->scoreBoard;
         }
-        $body = renderTwigView("game21.html", $data);
-        sendResponse($body);
+        return $data;
+//        $body = renderTwigView("game21.html", $data);
+//        sendResponse($body);
     }
 
     private function checkWinner(): ?string {

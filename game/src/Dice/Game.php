@@ -19,7 +19,7 @@ class Game
         $dice->rollDice();
         $dieHand = new DiceHand(5);
         $dieHand->rollDie();
-        $data = [
+        return $data = [
             "header" => "Dice",
             "message" => "Hey,play some die!",
             "lastRoll" => $dice->getLastRoll(),
@@ -27,7 +27,7 @@ class Game
             "graphicalTest" => $dice->graphical(),
             "graphical" => $dieHand->graphicalDie(),
         ];
-        $body = renderTwigView("dice.html", $data);
-        sendResponse($body);
+//        $body = renderTwigView("dice.html", $data);
+//        sendResponse($body);
     }
 }
