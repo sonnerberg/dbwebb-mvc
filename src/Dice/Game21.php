@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Pene14\Dice;
 
 use function Mos\Functions\{
-    renderTwigView,
-    sendResponse,
     url
 };
 

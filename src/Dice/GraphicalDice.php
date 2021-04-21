@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 namespace Pene14\Dice;
-use Pene14\Dice\Dice;
 
-class GraphicalDice extends Dice {
-    const NUMBERSIDES = 6;
+class GraphicalDice implements DiceInterface {
+    use DiceTrait;
+    private int $numberSides = 6;
     public function setSides(int $sides): void {
-        $this->numberSides = self::NUMBERSIDES;
+        $this->numberSides = self::$NUMBERSIDES;
     }
 
     public function graphical(): string {
