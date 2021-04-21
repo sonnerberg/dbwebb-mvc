@@ -12,14 +12,14 @@ use function Mos\Functions\{
 
 class Game
 {
-    public function playGame() {
+    public function playGame(): array {
         $dice = new GraphicalDice();
 
         $dice->setSides(20);
         $dice->rollDice();
         $dieHand = new DiceHand(5);
         $dieHand->rollDie();
-        return $data = [
+        return [
             "header" => "Dice",
             "message" => "Hey,play some die!",
             "lastRoll" => $dice->getLastRoll(),
@@ -27,7 +27,5 @@ class Game
             "graphicalTest" => $dice->graphical(),
             "graphical" => $dieHand->graphicalDie(),
         ];
-//        $body = renderTwigView("dice.html", $data);
-//        sendResponse($body);
     }
 }

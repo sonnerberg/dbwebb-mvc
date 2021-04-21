@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Pene14\Dice;
 
 class DiceHand
-// class DieHand
 {
-    private $die;
+    /**
+     * @var GraphicalDice[]
+     */
+    private array $die;
 
     public function __construct($numberDie = 3) {
         for ($i = 0; $i < $numberDie; $i++) {
