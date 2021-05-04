@@ -592,12 +592,20 @@ video {
   display: table;
 }
 
+.hidden {
+  display: none;
+}
+
 .flex-col {
   flex-direction: column;
 }
 
 .items-center {
   align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .font-bold {
@@ -774,6 +782,11 @@ video {
     -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);
             animation-timing-function: cubic-bezier(0,0,0.2,1);
   }
+}
+
+.grid-container {
+  margin-right: 50px;
+  margin-left: 50px;
 }
 
 @media (min-width: 640px) {

@@ -1,1 +1,5 @@
+/home/carbonic/Documents/dbwebb/kurser/mvc/me/game/src/Dice/Dice.php:10	Avoid unused private fields such as '$lastRoll'.
+/home/carbonic/Documents/dbwebb/kurser/mvc/me/game/src/Dice/GraphicalDice.php:10	Avoid unused private fields such as '$lastRoll'.
 /home/carbonic/Documents/dbwebb/kurser/mvc/me/game/src/Router/Router.php:26	The method dispatch() has a Cyclomatic Complexity of 30. The configured cyclomatic complexity threshold is 10.
+/home/carbonic/Documents/dbwebb/kurser/mvc/me/game/src/Yatzy/Yatzy.php:9	The class Yatzy has 12 public methods. Consider refactoring Yatzy to keep number of public methods under 10.
+/home/carbonic/Documents/dbwebb/kurser/mvc/me/game/src/Yatzy/YatzyDice.php:16	Avoid unused private fields such as '$lastRoll'.

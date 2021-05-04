@@ -45,3 +45,16 @@ $router->addGroup("/game21", function (RouteCollector $router) {
     $router->addRoute("GET", "/resetAndPlayAgain", ["\Pene14\Controller\Game", "resetAndPlayAgain"]);
 });
 
+$router->addGroup("/yatzy", function (RouteCollector $router) {
+    $router->addRoute("GET", "", "\Pene14\Controller\YatzyGame");
+    $router->addRoute("GET", "/rollAgain", ["\Pene14\Controller\YatzyGame", "rollAgain"]);
+    $router->addRoute("POST", "/saveDice", ["\Pene14\Controller\YatzyGame", "saveDice"]);
+    $router->addRoute("GET", "/destroyGame", ["\Pene14\Controller\YatzyGame", "destroyGame"]);
+    $router->addRoute("POST", "/saveOnes", ["\Pene14\Controller\YatzyGame", "saveOnes"]);
+    $router->addRoute("POST", "/saveTwos", ["\Pene14\Controller\YatzyGame", "saveTwos"]);
+    $router->addRoute("POST", "/saveThrees", ["\Pene14\Controller\YatzyGame", "saveThrees"]);
+    $router->addRoute("POST", "/saveFours", ["\Pene14\Controller\YatzyGame", "saveFours"]);
+    $router->addRoute("POST", "/saveFives", ["\Pene14\Controller\YatzyGame", "saveFives"]);
+    $router->addRoute("POST", "/saveSixes", ["\Pene14\Controller\YatzyGame", "saveSixes"]);
+});
+

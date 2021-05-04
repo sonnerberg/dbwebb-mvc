@@ -33,8 +33,8 @@ trait GraphicalDiceTrait
         $rolledNumber = $diceRolls["$lastRoll"];
         return <<<EOT
                 <div class="grid-container" style="
-                    width: 30px;
-                    height: 30px;
+                    width: 50px;
+                    height: 50px;
                     border: 1px solid black;
                     border-radius: 15%;
                     padding: 6px;

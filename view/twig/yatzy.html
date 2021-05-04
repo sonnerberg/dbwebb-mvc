@@ -1,0 +1,65 @@
+{% include 'layout/header.html' %}
+
+<div class="flex flex-col items-center">
+    <div class="bg-white shadow rounded px-8 pt-6 pb-8 mb-4">
+{% if resultsLeftToScore %}
+        <div class="flex flex-col items-center mb-4">
+            <p>Throws left: <span class="font-bold">{{ throwsLeft }}</span></p>
+        </div>
+<div class="flex justify-between">
+        {{ lastRolls | raw }}
+</div>
+    {% if throwsLeft %}
+        <div class="flex">
+        {% for status in dieStatus %}
+            <form action="{{ saveDice }}" method="post" style="width: 132px; margin: 10px;">
+                <input type="number" value="{{ loop.index -1 }}" hidden min="{{ loop.index -1 }}" max="{{ loop.index -1 }}" name="diceIndex">
+                <button type="submit" class="border-black border-2 mt-2 bg-green-500 p-2 rounded hover:bg-green-600 text-white font-bold">{{ status ? 'Unsave' : 'Save' }} dice number {{ loop.index }}</button>
+            </form>
+        {% endfor %}
+        </div>
+        <div class="flex flex-col items-center">
+            <a href="{{ rollAgain }}" class="block">
+                <button type="submit" class="border-black border-2 mt-2 bg-blue-500 p-2 rounded hover:bg-blue-600 text-white font-bold">Roll Again</button>
+            </a>
+        </div>
+    {% endif %}
+{% endif %}
+
+    {% if not throwsLeft %}
+        <div class="flex">
+        {% for postFunction, nameAndScore in saveScores %}
+                {% for buttonContent, score in nameAndScore %}
+                    {% if score is same as(null) %}
+                        <form action="{{ postFunction }}" method="post" style="margin: 10px;">
+                            <button type="submit" class="border-black border-2 mt-2 bg-green-500 p-2 rounded hover:bg-green-600 text-white font-bold">{{ buttonContent }}</button>
+                        </form>
+                    {% endif %}
+                {% endfor %}
+        {% endfor %}
+        </div>
+    {% endif %}
+        <table style="margin-left: auto; margin-right: auto;">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+            </thead>
+        {% for scoreName, score in currentResults %}
+            <tr>
+                <td>{{ scoreName }}:</td>
+                <td>{{ score }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+
+        <div class="flex flex-col items-center">
+            <a href="{{ destroySession }}">
+                <button type="submit" class="border-black border-2 mt-2 bg-red-500 p-2 rounded hover:bg-red-600 text-white font-bold">Reset game</button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
